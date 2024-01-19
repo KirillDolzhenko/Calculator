@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="calc">
+        <div class="calc__container">
+            <div class="calc__alert">Максимальное количество символов!
+            </div>
+            <div class="calc__screen">
+                <p>0</p>
+            </div>
+            <div class="calc__btns-container">
+                <div class="calc__btns">
+                    <div class="calc__operations-top">
+                        <button class="calc__btn btn-orange" data-action="ac">ac</button>
+                        <button class="calc__btn btn-orange" data-action="c">c</button>
+                        <button class="calc__btn btn-orange" data-action="%">%</button>
+                        <button class="calc__btn btn-orange" data-action="/">/</button>
+                    </div>
+                    <div class="calc__operations-right">
+                        <button class="calc__btn btn-orange" data-action="*">*</button>
+                        <button class="calc__btn btn-orange" data-action="-">-</button>
+                        <button class="calc__btn btn-orange" data-action="+">+</button>
+                        <button class="calc__btn btn-orange" data-action="=">=</button>
+                    </div>
+                    <div class="calc__numbers">
+                        <button class="calc__btn" data-action="7">7</button>
+                        <button class="calc__btn" data-action="8">8</button>
+                        <button class="calc__btn" data-action="9">9</button>
+                        <button class="calc__btn" data-action="4">4</button>
+                        <button class="calc__btn" data-action="5">5</button>
+                        <button class="calc__btn" data-action="6">6</button>
+                        <button class="calc__btn" data-action="1">1</button>
+                        <button class="calc__btn" data-action="2">2</button>
+                        <button class="calc__btn" data-action="3">3</button>
+                        <button class="calc__btn btn-open" data-action="open">←</button>
+                        <button class="calc__btn" data-action="0">0</button>
+                        <button class="calc__btn" data-action=",">,</button>
+                    </div>
+                    <div class="calc__operations-left">
+                        <button class="calc__btn btn-grey" data-action="√">√</button>
+                        <button class="calc__btn btn-grey" data-action="^">^</button>
+                        <button class="calc__btn btn-grey" data-action="cos">cos</button>
+                        <button class="calc__btn btn-grey" data-action="sin">sin</button>
+                        <button class="calc__btn btn-grey" data-action="tg">tg</button>
+                        <button class="calc__btn btn-grey" data-action="atg">atg</button>
+                        <button class="calc__btn btn-grey" data-action="1/x">1/x</button>
+                        <button class="calc__btn btn-grey" data-action="log">log</button>
+                        <button class="calc__btn btn-grey" data-action="lg">lg</button>
+                        <button class="calc__btn btn-grey" data-action="ln">ln</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
