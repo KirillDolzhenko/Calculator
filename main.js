@@ -1,6 +1,6 @@
 "use strict"
 
-let a = "";
+let a = localStorage.getItem("number") ? localStorage.getItem("number") : "";
 let b = "";
 let oper = "";
 let roundAmount = 3;
@@ -15,6 +15,22 @@ let calcBtns = document.querySelector(".calc__btns");
 let calcAlert = document.querySelector(".calc__alert");
 let calcScreen = document.querySelector(".calc__screen p");
 
+calcScreen.textContent = getLocalStorageNum(localStorage.getItem("number"));
+
+function getLocalStorageNum(item) {
+    console.log(item)
+    if (item == Infinity) {
+        return "∞";
+    } else if (item == -Infinity) {
+        return "-∞";
+    } else {
+        if (item) {
+            return item
+        } else {
+            return 0;
+        }
+    }
+}
 
 function checkNumMax(num, add = false) {
     if ((num.length + 1) <= maxDigitsNumber) {
@@ -128,14 +144,18 @@ function viewResults() {
     if (isNaN(a)) {
         a = "";
         calcScreen.textContent = "Ошибка";
-    } else if (a == Infinity || a == "Infinity") {
+        localStorage.setItem("number", "");
+    } else if (a == Infinity) {
         calcScreen.textContent = "∞";
-    } else if (a == -Infinity || a == "-Infinity") {
+        localStorage.setItem("number", a);
+    } else if (a == -Infinity) {
         calcScreen.textContent = "-∞";
+        localStorage.setItem("number", a);
     } else {
         a = transformingNum(a);
         a = a.replace(".", ",");
         calcScreen.textContent = a;
+        localStorage.setItem("number", a);
         if (+a == 0) {
             a = "";
         }
@@ -211,7 +231,7 @@ function clearOne() {
     } else {
         if (allOperations.includes(calcScreen.textContent)) {
             oper = "";
-            calcScreen.textContent = a;
+            calcScreen.textContent = a ? a : 0;
         } else {
             if (calcScreen.textContent.length == 1 && b == "") {
                 oper = "";
@@ -262,15 +282,20 @@ function operationOne(op) {
     } else if (isNaN(a)) {
         a = "";
         calcScreen.textContent = "Ошибка";
-    } else if (a == Infinity || a == "Infinity") {
+        localStorage.setItem("number", "");
+    } else if (a == Infinity) {
         calcScreen.textContent = "∞";
-    } else if (a == -Infinity || a == "-Infinity") {
+        localStorage.setItem("number", Infinity);
+    } else if (a == -Infinity) {
         calcScreen.textContent = "-∞";
+        localStorage.setItem("number", -Infinity);
     } else {
         a = a.replace(".", ",");
         calcScreen.textContent = a;
+        localStorage.setItem("number", a);
         if (+a == 0) {
             a = "";
+            localStorage.setItem("number", "");
         }
     }
 }
