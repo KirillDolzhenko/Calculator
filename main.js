@@ -460,16 +460,16 @@ calcHistoryBtn.addEventListener("click", (e) => {
 })
 
 calcHistoryList.addEventListener("click", (e) => {
-    console.log("1")
     let element = e.target.closest(".calc__history-item");
 
-    if (element.classList.contains("calc__history-item")) {
-        console.log("2")
-        clearAll();
-        let historyElement = element.querySelector(".calc__history-result");
-        calcScreen.textContent = historyElement.textContent;
-        a = convertStringToNum(historyElement.textContent);
-        element.remove();
-        historyCheckEmptiness()
+    if (element) {
+        if (element.classList.contains("calc__history-item")) {
+            clearAll();
+            let historyElement = element.querySelector(".calc__history-result");
+            calcScreen.textContent = historyElement.textContent;
+            a = convertStringToNum(historyElement.textContent);
+            element.remove();
+            historyCheckEmptiness();
+        }
     }
 })
