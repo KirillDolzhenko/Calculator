@@ -1,4 +1,5 @@
 @import "nullstyle.scss";
+@import 'overlayscrollbars';
 
 body {
     background-color: rgb(27, 27, 27);
@@ -31,7 +32,6 @@ body {
         }
 
     }
-
 
     &__container {
         display: inline-block;
@@ -121,6 +121,136 @@ body {
         grid-template-columns: repeat(2, 50px);
         gap: 10px;
 
+    }
+
+
+    &__history {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__history-button {
+        position: relative;
+        z-index: 3;
+        align-items: start;
+        text-align: left;
+        width: 30px;
+        height: 30px;
+
+        &>svg {
+            width: 30px;
+            height: 30px;
+
+            path {
+                transition: fill 0.2s ease;
+                fill: white;
+            }
+        }
+
+        &:hover {
+            path {
+                fill: rgb(255, 115, 0);
+            }
+        }
+    }
+
+    &__history-container {
+        // transform: scale(1, 0);
+        transform-origin: top;
+        z-index: 2;
+        position: absolute;
+        height: 0;
+        padding: 0;
+        background-color: rgb(80, 80, 80);
+        box-shadow: 0px 0px 10px black;
+        border-radius: 10px;
+        top: -6px;
+        left: -6px;
+        width: 250px;
+        overflow-y: hidden;
+        transition: all 0.2s ease;
+
+        &.active-element {
+            padding: 45px 5px 15px;
+            height: initial;
+
+            // transform: scale(1, 1);
+        }
+    }
+
+    &__history-list {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        max-height: 300px;
+        overflow-y: auto;
+
+        &>div:nth-child(2) {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding-right: 10px !important;
+        }
+    }
+
+    &__history-item {
+        user-select: none;
+        cursor: pointer;
+        padding: 5px 10px;
+        border-radius: 5px;
+        background-color: rgb(37, 37, 37);
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        gap: 5px;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            p {
+                color: white;
+            }
+
+            background-color: rgb(26, 26, 26);
+        }
+    }
+
+
+    &__history-result {
+        &::before {
+            content: "= ";
+        }
+    }
+
+
+    &__history-actions {
+        color: rgb(146, 146, 146);
+    }
+
+
+    &__history-actions,
+    &__history-result {
+        transition: color 0.2s ease;
+        font-size: 0.9rem;
+    }
+
+
+    &__history-small-number {
+        position: relative;
+        display: inline-block;
+        top: 3px;
+        font-size: 0.5rem;
+        color: inherit;
+
+        &-high {
+            top: -7px
+        }
+    }
+
+    &__history-text {
+        display: block;
+        height: 30px;
+        margin-top: 15px;
     }
 
     &.calc-wide {
