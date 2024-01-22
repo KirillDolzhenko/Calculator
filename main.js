@@ -111,9 +111,9 @@ function constructorOfHistoryBufer(num1, oper, bufer, num2) {
 
 function convertStringToNum(s) {
     if (s == "∞") {
-        return Infinity;
+        return "Infinity";
     } else if (s == "-∞") {
-        return -Infinity;
+        return "-Infinity";
     } else if (s == "0") {
         return "";
     } else {
@@ -165,6 +165,7 @@ function addNum(num) {
         if (!(a.includes(",") && num == ",")) {
             if ((a == "" && num == "0")) {
                 calcScreen.textContent = 0;
+            } else if ((a == "-Infinity" || a == "Infinity")) {
             } else if (!(num == ',' && a == "")) {
                 if (a.includes("e+")) {
                     oper = "*";
